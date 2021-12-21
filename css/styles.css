@@ -10653,6 +10653,11 @@ button.bg-dark:focus {
   text-align: center !important;
 }
 
+.text-center-fix {
+  text-align: center !important;
+  margin-top: 5px;
+}
+
 @media (min-width: 576px) {
   .text-sm-left {
     text-align: left !important;
@@ -11595,4 +11600,16 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .pushable:active .front {
   transform: translateY(-2px);
+}
+
+.deskripsi{
+    border:1px solid #ccc;
+    border-width:1px 0;
+    /* list-style:none; */
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+.deskripsi li{
+    text-align:left;
 }
