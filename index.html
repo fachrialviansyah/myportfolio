@@ -24,6 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
@@ -40,12 +41,159 @@
         .deskripsi li{
                     text-align:left;
         }
+
+        .skill-section {
+            background: #ffff;
+            padding: 80px 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .skill-section .text-center {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading {
+            font-size: 2.4rem;
+            color: #10B981;
+            margin-bottom: 10px;
+        }
+
+        .section-subheading {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        .skill-table {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        thead {
+            background: #10B981;
+            color: white;
+        }
+
+        thead th {
+            text-align: left;
+            padding: 15px 20px;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: #f1f5f9;
+            transform: scale(1.01);
+        }
+
+        td {
+            padding: 15px 20px;
+            font-size: 0.95rem;
+            color: #374151;
+        }
+
+        td img {
+            width: 28px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .level {
+            padding: 5px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .level.beginner { background: #f59e0b; }
+        .level.intermediate { background: #3b82f6; }
+        .level.advanced { background:#10B981; }
+
+         /* MOBILE VIEW - transform to card layout */
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+            display: block;
+            width: 100%;
+        }
+
+        thead {
+            display: none;
+        }
+
+        tbody {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        tbody tr {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            padding: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        tbody tr:hover {
+            transform: translateY(-3px);
+        }
+
+        td {
+            display: flex;
+            flex-direction: column;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        td::before {
+            content: attr(data-label);
+            font-weight: 600;
+            color: #10B981;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        td img {
+            width: 24px;
+            margin-right: 6px;
+        }
+    }
+
+        /* EXTRA SMALL DEVICES */
+        @media (max-width: 480px) {
+            .section-heading {
+                font-size: 1.8rem;
+            }
+            .section-subheading {
+                font-size: 1rem;
+            }
+            td {
+                font-size: 0.9rem;
+            }
+        }
+
+    
 	</style>
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3 active" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-1 active" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <h2 class="simbol">Welcome to Mypage</h2>
@@ -57,11 +205,13 @@
                 <i class="fas fa-bars ml-1"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto">
+                <ul class="navbar-nav text-uppercasebak ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Project</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skill">Skill</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Certifications</a></li>
                     <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li> -->
                 </ul>
             </div>
@@ -71,10 +221,10 @@
     <header class="masthead">
         <div class="container">
             <div class="masthead-heading">Hallo, I'm Fachri Alviansyah</div>
-            <div class="masthead-subheading">Someone who passionate with code and technology</div>
+            <div class="masthead-subheading">Someone who passionate about quality, code, and technology</div>
             <!-- <a class="btn btn-primary btn-group-sm js-scroll-trigger" href="#">Resume Me -->
             <button class="pushable">
-                <a href="resume/CV-FachriAlvianyahbak.pdf">
+                <a href="resume/resume-fachrialvaiansyah-QA.pdf">
                     <span class="front">Resume Me</span>
                 </a>
             </button>
@@ -84,9 +234,9 @@
     <section class="page-section bg-light" id="portfolio">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Portfolio</h2>
-                <h3 class="section-subheading text-muted">______________________________</h3>
+                <h2 class="section-heading">Project</h2>
             </div>
+            <br><br>
             <div class="row">
                 <div class="col-xl-3 col-xl-3 mb-4">
                     <div class="portfolio-item">
@@ -144,48 +294,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/04-thumbnail.jpg" alt="" />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Lines</div>
-                            <div class="portfolio-caption-subheading text-muted">Branding</div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/05-thumbnail.jpg" alt="" />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Southwest</div>
-                            <div class="portfolio-caption-subheading text-muted">Website Design</div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-4 col-sm-6">
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/06-thumbnail.jpg" alt="" />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Window</div>
-                            <div class="portfolio-caption-subheading text-muted">Photography</div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -193,15 +301,10 @@
     <section class="page-section" id="about">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">About Me</h2>
-                <h3 class="section-subheading text-body">______________________________</h3>
+                <h2 class="section-heading">About Me</h2>
+                <p class="text-muted">Jakarta - Indonesia • +62 812-9353-3330 • fachrialviansyah@gmail.com</p>
             </div>
-            <div class="text-center">
-                <p class="text-muted">Location Me, Jakarta - Indonesia<br> 0812-9353-3330 |
-                    fachrialviansyah@gmail.com <br> <a
-                        href="https://www.linkedin.com/in/fachri-alviansyah-6513781b3/"><b>Linkedin</b></a> & <a
-                        href="https://github.com/fachrialviansyah"><b>Github</b></a></p>
-            </div><br>
+            
             <div class="row text-center">
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -209,7 +312,7 @@
                         <i class="fab fa-teamspeak fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Communication</h4>
-                    <p class="text-muted">someone programmers must be able to explain complex technical concepts to
+                    <p class="text-muted">Someone programmers must be able to explain complex technical concepts to
                         their colleagues and less-informed individuals in the field.</p>
                 </div>
                 <div class="col-md-4">
@@ -235,187 +338,153 @@
         </div>
     </section>
     <!-- SKILL-->
-    <section class="page-section" id="skill">
+    <section id="skill" class="skill-section">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading">My Skill</h2>
+            <h3 class="section-subheading">Manual • Automation • Tools • Documentation</h3>
+        </div>
+
+        <div class="skill-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Skills</th>
+                    <th>Tools / Technology</th>
+                    <th>Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Category">Manual Testing</td>
+                    <td data-label="Skills">Test Scenario, Test Case Design, UAT, Black Box & White Box Testing, Test Documentation, Bug Tracking</td>
+                    <td data-label="Tools">JIRA, TestRail, Excel</td>
+                    <td data-label="Level"><span class="level advanced">Advanced</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Category">Automation Testing</td>
+                    <td data-label="Skills">Test Automation Frameworks, Debugging, BDD & Data-Driven Testing</td>
+                    <td data-label="Tools">Selenium WebDriver, Katalon Studio, RestAssured, Cucumber, TestNG, JUnit</td>
+                    <td data-label="Level"><span class="level intermediate">Intermediate</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Category">Programming & Database</td>
+                    <td data-label="Skills">Frontend & Backend Development, API Integration, SQL Queries</td>
+                    <td data-label="Tools">HTML5, CSS3, JavaScript, Python, Java, PHP, SQL</td>
+                    <td data-label="Level"><span class="level advanced">Advanced</span></td>
+                </tr>
+                <tr>
+                    <td data-label="Category">Tools & Documentation</td>
+                    <td data-label="Skills">Version Control, CI/CD, Reporting, Documentation</td>
+                    <td data-label="Tools">GitHub, Jenkins, Allure Report, IntelliJ IDEA, MS Office, Google Workspace</td>
+                    <td data-label="Level"><span class="level advanced">Advanced</span></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+    </section>
+    <!-- EXPERIENCE-->
+    <section id="experience" class="py-5 bg-light">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">My Skill Set</h2>
-                <h3 class="section-subheading text-muted">______________________________</h3>
+            <div class="text-center mb-5">
+                <!-- <h2 class="fw-bold text-primary">Work Experience</h2> -->
+                <h2 class="section-heading">Work Experience</h2>
+                <p class="text-muted">My professional journey in software development and QA engineering.</p>
             </div>
-            <ul class="timeline">
-                <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid"
-                            src="assets/img/about/frontend.png" alt="" /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="subheading">Part Frontend
-                                <h4 />
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">I'am understand basic programming.<br>• HTML DAN CSS<br>•
-                                WordPress<br>• Bootstrap<br>• Javascrip</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/Backend.png"
-                            alt="" /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="subheading">Part Backends</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">I'am understand basic programming backend languages.<br>
-                                • PHP<br>• CodeIgniter<br>• REST API<br>• MySQL</p>
+
+            <div class="row g-4">
+            <!-- Experience Card 1 -->
+                <div class="col-lg-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary mb-2">
+                                PT Webcenter Sentra Solusindo
+                            </h5>
+                            <h6 class="text-muted">Programmer (Contract) | Mar 2022 – Jul 2025</h6>
+                            <ul class="mt-3 ps-3">
+                                <li>Analyzed web application projects and applied SDLC using Waterfall and Agile methods</li>
+                                <li>Designed and executed test cases, including API testing with Postman</li>
+                                <li>Conducted UAT with users to validate system functionality</li>
+                                <li>Reported and fixed bugs to improve application performance and reliability</li>
+                                <li>Trained users through presentations and provided system maintenance support</li>
+                            </ul>
+                            <div class="text-end">
+                                <span class="badge bg-info text-dark">Development & Manual Testing</span>
+                            </div>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/tools.png"
-                            alt="" /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="subheading">Tools & Source Control</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">I can do Microsoft office management. <br>
-                                • GIT<br>• Github<br>• Visual Studio Code<br>• Postman
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <!-- <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg"
-                            alt="" /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4>July 2014</h4>
-                            <h4 class="subheading">Phase Two Expansion</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                                voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero
-                                unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+                <!-- Experience Card 2 -->
+                <div class="col-lg-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary mb-2">
+                                PT Nuansa Citra Ramantha
+                            </h5>
+                            <h6 class="text-muted">Programmer Support (Contract) | Jun 2021 – Dec 2021</h6>
+                            <ul class="mt-3 ps-3">
+                                <li>Analyzed web application projects using Waterfall methodology and applied SDLC</li>
+                                <li>Designed and executed test cases, including API testing with Postman</li>
+                                <li>Conducted UAT with users to validate system requirements</li>
+                                <li>Reported project progress and discussed improvements with clients and IT leaders</li>
+                                <li>Supported system quality through issue tracking</li>
+                            </ul>
+                            <div class="text-end">
+                                <span class="badge bg-info text-dark">Programmer Support</span>
+                            </div>
                         </div>
                     </div>
-                </li> -->
-                <li class="timeline-inverted">
-                    <div class="timeline-image">
-                        <h4>
-                            Be Part
-                            <br />
-                            Of Our
-                            <br />
-                            Story!
-                        </h4>
-                    </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- Team-->
-    <!-- <section class="page-section bg-light" id="team">
+    <!-- Education-->
+     <section id="education" class="py-5">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <div class="text-center mb-5">
+            <h2 class="section-heading">Course & Certification</h2>
+            <p class="text-muted">Certification background and QA training.</p>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="" />
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+
+            <div class="row justify-content-center g-4">
+                <!-- Education Card 1 -->
+                 <div class="col-md-5">
+                    <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold text-primary">JayJay Online Course</h5>
+                        <p class="text-muted mb-1">Quality Assurance Engineer Certification</p>
+                        <p class="text-secondary mb-3">(Mar 2025 – Aug 2025)</p>
+                        <p class="small text-muted">Focused on Selenium, API Testing (Postman), and Agile QA methodology.</p>
+                    </div>
+                    </div>
+                </div>
+                <!-- Education Card 2 -->
+                <div class="col-md-5">
+                    <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold text-primary">AfterOffice Online Course</h5>
+                        <p class="text-muted mb-1">Katalon Studio Certification</p>
+                        <p class="text-secondary mb-3">(Sep 2025 – Oct 2025)</p>
+                        <p class="small text-muted">Focused on Katalon Studio, API Testing (Postman), and Agile QA methodology.</p>
+                    </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
-                        laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-                </div>
-            </div>
         </div>
-    </section> -->
-    <!-- Clients-->
-    <!-- <div class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 my-3">
-                    <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/envato.jpg" alt="" /></a>
-                </div>
-                <div class="col-md-3 col-sm-6 my-3">
-                    <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/designmodo.jpg"
-                            alt="" /></a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Contact-->
-    <!-- <section class="page-section" id="contact">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contact Us</h2> <br />
-            </div>
-            <form action="https://formspree.io/fachrialviansyah@gmail.com" method="POST" id="contactForm"
-                name="sentMessage">
-                <div class="row align-items-stretch mb-5">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input class="form-control" id="name" type="text" placeholder="Your Name & Agecy *"
-                                required="required" data-validation-required-message="Please enter your name." />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" id="email" type="email" placeholder="Your Email *"
-                                required="required"
-                                data-validation-required-message="Please enter your email address." />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="form-group mb-md-0">
-                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *"
-                                required="required"
-                                data-validation-required-message="Please enter your phone number." />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group form-group-textarea mb-md-0">
-                            <textarea class="form-control" id="message" placeholder="Your Message *" required="required"
-                                data-validation-required-message="Please enter a message."></textarea>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div id="success"></div>
-                    <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send
-                        Message</button>
-                </div>
-            </form>
-        </div>
-    </section> -->
+    </section>
     <!-- Footer-->
     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-left">Copyright © Created by Fachri Alviansyah</div>
+                <div class="col-lg-4 text-lg-left">Copyright © 2025</div>
                 <div class="col-lg-4 my-3 my-lg-0">
-                    <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/fachriaje/"><i
-                            class="fab fa-instagram"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="https://github.com/fachrialviansyah"><i
-                            class="fab fa-github"></i></a>
-                    <a class="btn btn-dark btn-social mx-2"
-                        href="https://www.linkedin.com/in/fachri-alviansyah-6513781b3/"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/fachri.alv/"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://github.com/fachrialviansyah"><i class="fab fa-github"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/fachrialviansyah/"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <div class="col-lg-4 text-lg-right">Design by Bootstrap </div>
-                <!-- <div class="col-lg-4 text-lg-right">
-                    <a class="mr-3" href="#!">Privacy Policy</a>
-                    <a href="#!">Terms of Use</a>
-                </div> -->
+                <div class="col-lg-4 text-lg-right">Created by Fachri Alviansyah</div>
             </div>
         </div>
     </footer>
@@ -601,6 +670,10 @@
     <!-- <script src="assets/mail/contact_me.js"></script> -->
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+
+    <script type="text/javascript">
+        
+    </script>
 
     <script type="text/javascript">
         // navbar
