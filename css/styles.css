@@ -11503,6 +11503,63 @@ header.masthead .masthead-heading {
       }
   }
 
+  /* posisi tombol */
+  #topcontrol{
+      right: 25px !important;
+      bottom: 25px !important;
+      opacity: 1 !important;
+  }
+
+  /* bentuk tombol */
+  #topcontrol .top-arrow{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: #18b495; /* warna utama web kamu (hijau) */
+      color: white;
+      font-size: 26px;
+      font-weight: bold;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: all .25s ease;
+      cursor: pointer;
+  }
+
+/* HAPUS style bawaan plugin */
+#topcontrol{
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* styling tombol baru */
+#topcontrol img.top-btn{
+    width: 45px;
+    height: 45px;
+    padding: 12px;
+    background: #10B981;   /* warna hijau kamu */
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: 0.15s ease;
+    display: block;
+}
+
+/* hover */
+#topcontrol img.top-btn:hover{
+    transform: translateY(-6px) scale(1.07);
+    background: #0e9f6e;
+}
+  
+  /* hover */
+  #topcontrol .top-arrow:hover{
+      transform: translateY(-5px);
+      background: #139e81;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  }
+
   /* tombol X */
   .close{
       position: absolute;
