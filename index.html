@@ -11,6 +11,9 @@
     <!-- Font Awesome icons -->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 
+    <!-- Logo WA -->
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
+
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet"
@@ -28,6 +31,8 @@
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+
+    
     
     <style type="text/css">
 		.deskripsi{
@@ -1067,7 +1072,7 @@
         // Scroll top up button
         var scrolltotop = {
             setting: {
-                startline: 100,
+                startline: 200,
                 scrollto: 0,
                 scrollduration: 1e3,
                 fadeduration: [500, 100]
@@ -1101,16 +1106,29 @@
                     top: s + "px"
                 })
             },
-            togglecontrol: function () {
+           togglecontrol: function () {
                 var t = jQuery(window).scrollTop();
-                this.cssfixedsupport || this.keepfixed(), this.state.shouldvisible = t >= this.setting
-                    .startline ? !0 : !1, this.state.shouldvisible && !this.state.isvisible ? (this.$control
-                        .stop().animate({
-                            opacity: 1
-                        }, this.setting.fadeduration[0]), this.state.isvisible = !0) : 0 == this.state
-                    .shouldvisible && this.state.isvisible && (this.$control.stop().animate({
-                        opacity: 0
-                    }, this.setting.fadeduration[1]), this.state.isvisible = !1)
+                this.cssfixedsupport || this.keepfixed();
+
+                this.state.shouldvisible = t >= this.setting.startline;
+
+                if (this.state.shouldvisible && !this.state.isvisible) {
+                    this.$control
+                        .css('display', 'block')
+                        .stop()
+                        .animate({ opacity: 1 }, this.setting.fadeduration[0]);
+
+                    this.state.isvisible = true;
+
+                } else if (!this.state.shouldvisible && this.state.isvisible) {
+                    this.$control
+                        .stop()
+                        .animate({ opacity: 0 }, this.setting.fadeduration[1], function () {
+                            $(this).css('display', 'none');
+                        });
+
+                    this.state.isvisible = false;
+                }
             },
             init: function () {
                 jQuery(document).ready(function (t) {
@@ -1124,7 +1142,8 @@
                             bottom: o.controlattrs.offsety,
                             right: o.controlattrs.offsetx,
                             opacity: 0,
-                            cursor: "pointer"
+                            cursor: "pointer",
+                            display: "none"
                         }).attr({
                             title: "Top"
                         }).click(function () {
@@ -1152,6 +1171,31 @@
                     $('.navbar').removeClass('active');
                 }
             });
+        });
+    </script>
+    <script id="wa-position">
+        $(window).on('scroll', function () {
+            const isVisible = $('#topcontrol').is(':visible');
+
+            if (isVisible) {
+                $('.wa-float').css('bottom', '90px'); // naik
+            } else {
+                $('.wa-float').css('bottom', '20px'); // turun
+            }
+        });
+
+        function updateWA() {
+            if ($(window).scrollTop() > 200) {
+                $('.wa-float').css('bottom', '90px');
+            } else {
+                $('.wa-float').css('bottom', '20px');
+            }
+        }
+
+        $(window).on('scroll', updateWA);
+
+        $(document).ready(function () {
+            updateWA();
         });
     </script>
 <!-- LIGHTBOX -->
@@ -1194,6 +1238,9 @@ document.addEventListener("keydown", (e)=>{
 });
 </script>
 
+<a href="https://wa.me/6281293533330?text=Hello,%20I%E2%80%99m%20interested%20in%20your%20QA%20profile%20and%20would%20like%20to%20discuss%20further." target="_blank" class="wa-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
 </body>
 
 </html>

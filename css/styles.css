@@ -11513,6 +11513,7 @@ header.masthead .masthead-heading {
       right: 25px !important;
       bottom: 25px !important;
       opacity: 1 !important;
+      z-index: 999;
   }
 
   /* bentuk tombol */
@@ -11538,6 +11539,7 @@ header.masthead .masthead-heading {
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
+    opacity: 0;
 }
 
 /* styling tombol baru */
@@ -11856,3 +11858,31 @@ header.masthead{
     }
 }
 
+.wa-float {
+    position: fixed;
+    bottom: 20px; /* default di bawah */
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    background-color: #25D366;
+    color: white;
+    font-size: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: bottom 0.3s ease; /* fokus ke bottom saja */
+    animation: float 2s ease-in-out infinite;
+}
+
+.wa-float:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.1);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
