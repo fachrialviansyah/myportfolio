@@ -11812,3 +11812,47 @@ header.masthead{
   padding-top: 290px;
   padding-bottom: 80px;
 }
+
+/* About me */
+.about-card {
+    border-radius: 12px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.section-heading {
+    font-size: 32px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 26px;
+    }
+
+    .about-card {
+        padding: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .section-heading {
+        font-size: 22px;
+    }
+
+    .text-muted.small {
+        font-size: 13px;
+    }
+
+    .fa-stack {
+        font-size: 2rem;
+    }
+}
+
